@@ -1,0 +1,4 @@
+pywin32==305
+pyinstaller==4.10
+lxml==4.9.1
+requests==2.27.1
