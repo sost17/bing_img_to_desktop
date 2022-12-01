@@ -1,11 +1,11 @@
 # coding = utf-8
 
 import os
+import win32api
+import win32gui
 
 import requests
-import win32api
 import win32con
-import win32gui
 from lxml import etree
 
 
@@ -62,7 +62,9 @@ class DownloadBingImg:
     def main(self):
         img_url = self.get_bing_img()
         if img_url:
-            self.download_image_file(self.base_url + img_url)
+            if 'https://' not in img_url:
+                img_url = self.base_url + img_url
+            self.download_image_file(img_url)
             self.change_desktop_image()
 
 
